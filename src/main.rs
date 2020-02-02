@@ -38,7 +38,7 @@ fn main() -> failure::Fallible<()> {
 
     let annoy = rannoy::Rannoy::new(4096);
     
-    let ann = Path::new("./image.ann");
+    let ann = Path::new("./vgg16.ann");
     if !ann.exists() {
         let mut image_count:i32 = 0;    
 
@@ -62,10 +62,13 @@ fn main() -> failure::Fallible<()> {
         }
 
         annoy.build(image_count);
-        annoy.save(PathBuf::from("./image.ann"));
+        println!("Annoy build.");
+
+        annoy.save(Path::new("./vgg.ann"))
     }
 
-    annoy.load(PathBuf::from("./image.ann"));
+    println!("Load annoy.");
+    annoy.load(PathBuf::from("./vgg.ann"));
 
     let test_image = imagenet::load_image_and_resize224(
         Path::new("./test.jpg")
