@@ -1,0 +1,13 @@
+[package]
+name = "similar-image-search"
+version = "0.1.0"
+authors = ["uzushino <torattoria.mamiya@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tch = "*"
+failure = "*"
+rannoy = { git = "https://github.com/uzushino/rs-annoy.git" }
+glob = "0.3.0"
