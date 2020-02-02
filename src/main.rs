@@ -42,6 +42,8 @@ fn main() -> failure::Fallible<()> {
     if !ann.exists() {
         let mut image_count:i32 = 0;    
 
+        // Dataset: Flower
+        // https://www.kaggle.com/alxmamaev/flowers-recognition/data
         for (i, entry) in glob::glob("data/flowers/tulip/*.jpg").expect("Failed to read glob pattern").enumerate() {
             match entry {
                 Ok(path) => {
